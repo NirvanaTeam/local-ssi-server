@@ -1,0 +1,81 @@
+{
+  "name": "local-ssi-server",
+  "displayName": "Local SSI Server",
+  "description": "Preview static sites that use Server Side Includes (SSI) like <!--#include ... -->",
+  "version": "0.0.2",
+  "publisher": "local",
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "main": "./out/extension.js",
+  "activationEvents": [
+    "onCommand:localSsiServer.start",
+    "onCommand:localSsiServer.stop"
+  ],
+  "contributes": {
+    "commands": [
+      {
+        "command": "localSsiServer.start",
+        "title": "Local SSI Server: Start"
+      },
+      {
+        "command": "localSsiServer.stop",
+        "title": "Local SSI Server: Stop"
+      }
+    ],
+    "configuration": {
+      "title": "Local SSI Server",
+      "properties": {
+        "localSsiServer.entry": {
+          "type": "string",
+          "default": "index.html",
+          "description": "Entry file to open when the server starts."
+        },
+        "localSsiServer.openIn": {
+          "type": "string",
+          "enum": [
+            "vscode",
+            "external"
+          ],
+          "default": "vscode",
+          "description": "Where to open the preview (VS Code Simple Browser or external browser)."
+        },
+        "localSsiServer.host": {
+          "type": "string",
+          "default": "127.0.0.1",
+          "description": "Host interface to bind the server to."
+        },
+        "localSsiServer.liveReload": {
+          "type": "boolean",
+          "default": true,
+          "description": "Reload the page when files change in the workspace."
+        },
+        "localSsiServer.liveReloadDelay": {
+          "type": "number",
+          "default": 150,
+          "minimum": 0,
+          "description": "Debounce delay (ms) before triggering a reload."
+        }
+      }
+    }
+  },
+  "scripts": {
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "vscode:prepublish": "npm run compile"
+  },
+  "dependencies": {
+    "chokidar": "^3.6.0",
+    "express": "^4.19.2",
+    "ssi-middleware": "^0.1.14"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.21",
+    "@types/node": "^20.11.30",
+    "@types/vscode": "^1.85.0",
+    "typescript": "^5.4.5"
+  }
+}
