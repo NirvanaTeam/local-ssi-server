@@ -37,8 +37,8 @@ vsce package
 MIT
 
 ## Contact
-WEBSITE: nirvanarise.ir  
-GITHUB: github.com/NirvanaTeam  
-TG: t.me/AshenRomance  
-X: x.com/JameeSetiz  
+WEBSITE: https://nirvanarise.ir  
+GITHUB: https://github.com/NirvanaTeam  
+TG: https://t.me/AshenRomance  
+X: https://x.com/JameeSetiz  
 EMAIL: nirvanarise.co@gmail.com
